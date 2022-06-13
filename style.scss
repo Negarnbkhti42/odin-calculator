@@ -15,6 +15,8 @@ body {
     height: 724px;
     background-color: #fff;
     position: relative;
+    border-radius: 20px;
+    box-shadow: 8px 9px 12px rgba(61, 61, 61, 0.4);
 }
 
 .keypad {
@@ -74,5 +76,8 @@ body {
 
 .equal {
     background: none;
+}
+
+.small_text {
     font-size: 2em;
 }
