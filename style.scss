@@ -11,6 +11,7 @@ body {
 
 .calculator {
     flex-shrink: 0;
+    overflow: hidden;
     width: 410px;
     height: 724px;
     background-color: #fff;
@@ -84,6 +85,6 @@ body {
     background: none;
 }
 
-.small_text {
+.small-text {
     font-size: 2em;
 }
