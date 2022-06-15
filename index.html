@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./style.scss" rel="stylesheet" />
+    <script src="script.js" defer></script>
     <title>Calculator</title>
 </head>
 
@@ -15,24 +16,24 @@
             <div id="append">1+2</div>
         </div>
         <div class="keypad">
-            <button class="btn long control">C</button>
-            <button class="btn control">%</button>
-            <button class="btn small-text control">&#247</button>
-            <button class="btn round">7</button>
-            <button class="btn round">8</button>
-            <button class="btn round">9</button>
-            <button class="btn control">x</button>
-            <button class="btn round">4</button>
-            <button class="btn round">5</button>
-            <button class="btn round">6</button>
-            <button class="btn control">+</button>
-            <button class="btn round">1</button>
-            <button class="btn round">2</button>
-            <button class="btn round">3</button>
-            <button class="btn control">-</button>
-            <button class="btn long round">0</button>
-            <button class="btn control round">,</button>
-            <button class="btn control small_text round equal">=</button>
+            <button data-key="Escape" class="btn long control">C</button>
+            <button data-key="%" class="btn control">%</button>
+            <button data-key="/" class="btn small-text control">&#247</button>
+            <button data-key="7" class="btn round">7</button>
+            <button data-key="8" class="btn round">8</button>
+            <button data-key="9" class="btn round">9</button>
+            <button data-key="*" class="btn control">x</button>
+            <button data-key="4" class="btn round">4</button>
+            <button data-key="5" class="btn round">5</button>
+            <button data-key="6" class="btn round">6</button>
+            <button data-key="+" class="btn control">+</button>
+            <button data-key="1" class="btn round">1</button>
+            <button data-key="2" class="btn round">2</button>
+            <button data-key="3" class="btn round">3</button>
+            <button data-key="-" class="btn control">-</button>
+            <button data-key="0" class="btn long round">0</button>
+            <button data-key="." class="btn control round">,</button>
+            <button data-key="=" class="btn control small-text round equal">=</button>
         </div>
     </div>
 </body>
