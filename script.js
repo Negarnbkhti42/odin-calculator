@@ -71,34 +71,44 @@ const previousText = document.querySelector("[data-previous]")
 const calculator = new Calculator(calculationText, previousText);
 calculator.clear();
 
+function handleNumberClick(number) {
+    calculator.appendNumber(element.getAttribute("data-key"));
+    calculator.updateDisplay();
+}
+
+function handleOperatorClick(operation) {
+    calculator.setOperation(element.getAttribute("data-key"));
+    calculator.updateDisplay();
+}
+
+function handleEqualClick() {
+    calculator.setResult();
+    calculator.updateDisplay();
+}
+
+function handleDelete() {
+    calculator.delete();
+    calculator.updateDisplay();
+}
+
+function handleClear() {
+    calculator.clear();
+    calculator.updateDisplay();
+}
+
 numbers.forEach(element => {
-    element.addEventListener("click", () => {
-        calculator.appendNumber(element.getAttribute("data-key"));
-        calculator.updateDisplay();
-    });
+    element.addEventListener("click", () => { handleNumberClick(element); });
 });
 
 operators.forEach(element => {
-    element.addEventListener("click", () => {
-        calculator.setOperation(element.getAttribute("data-key"));
-        calculator.updateDisplay();
-    });
+    element.addEventListener("click", () => { handleNumberClick(element); });
 });
 
-equal.addEventListener("click", () => {
-    calculator.setResult();
-    calculator.updateDisplay();
-})
+equal.addEventListener("click", handleEqualClick);
 
-del.addEventListener("click", () => {
-    calculator.delete();
-    calculator.updateDisplay();
-})
+del.addEventListener("click", handleDelete)
 
-clear.addEventListener("click", () => {
-    calculator.clear();
-    calculator.updateDisplay();
-})
+clear.addEventListener("click", handleClear)
 
 window.addEventListener("keyup", function (e) {
     key = this.document.querySelector(`.btn[data-key="${e.key}"]`);
