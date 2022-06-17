@@ -72,12 +72,12 @@ const calculator = new Calculator(calculationText, previousText);
 calculator.clear();
 
 function handleNumberClick(number) {
-    calculator.appendNumber(element.getAttribute("data-key"));
+    calculator.appendNumber(number.getAttribute("data-key"));
     calculator.updateDisplay();
 }
 
 function handleOperatorClick(operation) {
-    calculator.setOperation(element.getAttribute("data-key"));
+    calculator.setOperation(operation.getAttribute("data-key"));
     calculator.updateDisplay();
 }
 
