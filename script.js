@@ -111,15 +111,35 @@ del.addEventListener("click", handleDelete)
 clear.addEventListener("click", handleClear)
 
 window.addEventListener("keyup", function (e) {
-    key = this.document.querySelector(`.btn[data-key="${e.key}"]`);
-    console.log(numbers.values());
+    let key = this.document.querySelector(`.btn[data-key~="${e.key}"]`);
 
     if (!key) {
         return;
     }
 
-    // if (numbers.array.includes(key)) {
-    //     calculator.appendNumber(element.getAttribute("data-key"));
-    //     calculator.updateDisplay();
-    // }
+    if (key.hasAttribute("data-number")) {
+        handleNumberClick(key);
+        return;
+    }
+
+    if (key.hasAttribute("data-operation")) {
+        handleOperatorClick(key);
+        return;
+    }
+
+    if (key.hasAttribute("data-equal")) {
+        handleEqualClick();
+        return;
+    }
+
+    if (key.hasAttribute("data-delete")) {
+        handleDelete();
+        return;
+    }
+
+    if (key.hasAttribute("data-clear")) {
+        handleClear();
+        return;
+    }
+
 });
