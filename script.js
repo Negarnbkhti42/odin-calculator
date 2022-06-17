@@ -31,27 +31,31 @@ class Calculator {
     }
 
     setOperation(operation) {
-
-        if (this.operation && this.operation !== "=") {
-            this.calculationText = this.compute();
+        if (!this.calculationText) {
+            this.calculationText = "0";
         }
-        this.operation = operation;
-        this.previousText = this.calculationText;
-        this.calculationText = "";
+
+        if (operation === "=" && this.operation) {
+            this.previousText = this.previousText + this.operation + this.calculationText;
+            this.calculationText = this.compute();
+            this.operation = operation;
+        } else {
+            if (this.operation && (this.operation != "=")) {
+                this.previousText = this.compute();
+            } else {
+                this.previousText = this.calculationText;
+            }
+            this.operation = operation;
+            this.calculationText = "";
+        }
     }
 
     compute() {
         if (this.previousText && this.operation) {
-            return Calculator.Operate[this.operation](parseFloat(this.previousText), parseFloat(this.calculationText || 0));
+            return Calculator.Operate[this.operation]?.(parseFloat(this.previousText), parseFloat(this.calculationText));
         }
     }
 
-    setResult() {
-        let result = this.compute();
-        this.previousText += this.operation + this.calculationText;
-        this.calculationText = result;
-        this.operation = "=";
-    }
 
     updateDisplay() {
         this.calculationTextElement.innerHTML = this.calculationText || "0";
@@ -82,7 +86,7 @@ function handleOperatorClick(operation) {
 }
 
 function handleEqualClick() {
-    calculator.setResult();
+    calculator.setOperation("=");
     calculator.updateDisplay();
 }
 
