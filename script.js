@@ -18,7 +18,9 @@ class Calculator {
     }
 
     delete() {
-
+        if (this.calculationText) {
+            this.calculationText = this.calculationText.slice(0, this.calculationText.length - 1);
+        }
     }
 
     appendNumber(number) {
@@ -85,6 +87,16 @@ operators.forEach(element => {
 
 equal.addEventListener("click", () => {
     calculator.setResult();
+    calculator.updateDisplay();
+})
+
+del.addEventListener("click", () => {
+    calculator.delete();
+    calculator.updateDisplay();
+})
+
+clear.addEventListener("click", () => {
+    calculator.clear();
     calculator.updateDisplay();
 })
 
